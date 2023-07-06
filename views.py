@@ -8,3 +8,7 @@ from django.http import JsonResponse
 
 def data(request):
     return JsonResponse(status=200, data={"ResponseCode" : 0, "message": "Process OK"})
+
+
+def list():
+    return JsonResponse(status=200, data={"ResponseCode" : 0, "message": "Process OK"})

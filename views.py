@@ -4,10 +4,12 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
+from services import get_data
 
 
 def data(request):
-    return JsonResponse(status=200, data={"ResponseCode" : 0, "message": "Process OK"})
+    data = get_data()
+    return JsonResponse(status=200, data=data.__dict__)
 
 
 def list(request):

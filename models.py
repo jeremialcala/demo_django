@@ -5,7 +5,7 @@ import json
 
 
 @dataclass
-class Framework(models.Model):
+class Framework:
     name: str
     description: str
     market: int

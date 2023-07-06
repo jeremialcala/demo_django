@@ -1,3 +1,2 @@
 # DATABASE
 
-DATABASES = { 'default': { '' }}

@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 
 
-def data(request):
+def data():
     return JsonResponse(status=200, data={"ResponseCode" : 0, "message": "Process OK"})
 
 

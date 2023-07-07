@@ -4,20 +4,22 @@ from models import Framework
 from collections import OrderedDict
 
 
-def get_frameworks():
-    d = []
-    # url = "https://e-volution.co/django784-test1a1/"
+def get_data():
+    url = "https://e-volution.co/django784-test1a1/"
 
     headers = {
         'Authorization': 'Basic dXNlcjQ1OjU2ZmVkMjM1ZGY0NTNmYmM4MjZkZGMyM2QzZmRiY2FzNzNjNGZz'
     }
-    # response = requests.request("GET", url, headers=headers)
-    # if response.status_code != 200:
+    response = requests.request("GET", url, headers=headers)
+    if response.status_code != 200:
+        return {"responseCode": response.status_code, "message": "something went wrong"}
 
-    #    return frameworks
+    return json.loads(response.text)["data"]
 
-    # data =json.loads(response.text)["data"]
 
+def get_frameworks():
+    d = []
+    # data = get_data()  #  This is the method that calls the API
     data =  \
     {
         "frameworks": {
@@ -35,6 +37,8 @@ def get_frameworks():
             "Flask: provides configuration and conventions, with sensible defaults, to get started"
         ]
     }
+    # Here we are ordering the data
+    # TODO: save this data into a database and get some improvements on performance
 
     for key, value in data["frameworks"].items():
         if len(d) == 0:

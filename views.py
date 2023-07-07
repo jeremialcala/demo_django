@@ -4,7 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
-from services import get_data
+from services import get_data, get_frameworks
+from datetime import datetime
 
 
 def data(request):
@@ -13,4 +14,11 @@ def data(request):
 
 
 def list(request):
-    return JsonResponse(status=200, data={"ResponseCode" : 0, "message": "Process OK"})
+    data = {
+        "responseCode": 0,
+        "message": "process ok",
+        "data": get_frameworks(),
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+    return JsonResponse(status=200, data=data)

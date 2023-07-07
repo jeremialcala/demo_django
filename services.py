@@ -45,12 +45,8 @@ def get_frameworks():
             d.append({"name": key, "desc": [d for d in data["desc"] if key in d][0], "market": value})
         elif int(d[-1]["market"].strip("%")) < int(value.strip("%")):
             d.insert(0, {"name": key, "desc": [d for d in data["desc"] if key in d][0], "market": value})
+        else:
+            d.append({"name": key, "desc": [d for d in data["desc"] if key in d][0], "market": value})
 
     return d
 
-
-def get_data():
-    return Framework(name="Django",
-                     description="Django: Is a high-level Python web framework that encourages "
-                                 "rapid development and clean",
-                     market=65)

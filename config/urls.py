@@ -19,5 +19,5 @@ from views import data, list
 urlpatterns = [
     path('admin/', admin.site.urls),\
     path("test/data", data, name="data"),
-    path("test/list", list, name="list")
+    path("test/list", list, name="_list")
 ]

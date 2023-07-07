@@ -9,11 +9,11 @@ from datetime import datetime
 
 
 def data(request):
-    data = get_data()
-    return JsonResponse(status=200, data=data.__dict__)
+    data = get_frameworks()
+    return JsonResponse(status=200, data={"data": data})
 
 
-def list(request):
+def _list(request):
     data = {
         "responseCode": 0,
         "message": "process ok",

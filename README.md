@@ -38,6 +38,9 @@ Regards
     }
 }
 ```
+## This is the response of test/data
+
+![image info](images/test_data.png)
 
 ## This is the response of test/list
 

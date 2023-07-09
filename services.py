@@ -42,11 +42,11 @@ def get_frameworks():
 
     for key, value in data["frameworks"].items():
         if len(d) == 0:
-            d.append({"name": key, "desc": [d for d in data["desc"] if key in d][0], "market": value})
+            d.append({"name": key, "desc": next(d for d in data["desc"] if key in d), "market": value})
         elif int(d[-1]["market"].strip("%")) < int(value.strip("%")):
-            d.insert(0, {"name": key, "desc": [d for d in data["desc"] if key in d][0], "market": value})
+            d.insert(0, {"name": key, "desc": next(d for d in data["desc"] if key in d), "market": value})
         else:
-            d.append({"name": key, "desc": [d for d in data["desc"] if key in d][0], "market": value})
+            d.append({"name": key, "desc": next(d for d in data["desc"] if key in d), "market": value})
 
     return d
 

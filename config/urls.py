@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from views import data, _list
 urlpatterns = [
-    path('admin/', admin.site.urls),\
+    path('admin/', admin.site.urls),
     path("test/data", data, name="data"),
     path("test/list", _list, name="_list")
 ]
